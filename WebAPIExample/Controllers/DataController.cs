@@ -1,4 +1,4 @@
-using AuthLibrary;
+using DataAccess;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -12,7 +12,7 @@ namespace WebAPIExample.Controllers
         [HttpPost("execute")]
         public IActionResult ExecuteSql(string dsn, string sql, [FromBody] Dictionary<string, object> parameters)
         {
-            var result = AuthService.ExecuteSql(dsn, sql, parameters);
+            var result = DataAccessService.ExecuteSql(dsn, sql, parameters);
             return Ok(result);
         }
     }
